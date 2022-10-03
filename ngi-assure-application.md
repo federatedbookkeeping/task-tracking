@@ -1,8 +1,8 @@
 # Project Details
-Thematic Call: NGI Assure
-Proposed Name: Federated Task-Tracking with Live Data
-Website / wiki: https://github.com/federatedbookkeeping/task-tracking
-Primary Contact: Victor
+* Thematic Call: NGI Assure
+* Proposed Name: Federated Task-Tracking with Live Data
+* Website / wiki: https://github.com/federatedbookkeeping/task-tracking
+* Primary Contact: Victor
 
 # Abstract
 In the “Federated Timesheets” research project we learned a lot about how to federate sovereign systems into a network with rapid data portability. Three systems (WikiSuite, timeld, and Prejournal) were linked into a two-way sync network, and integrated with the APIs of existing time-tracking apps.
@@ -70,12 +70,12 @@ In the Federated Timesheets project we established desirable characteristics of 
 
 In parallel, we will also prototype the use of a technology developed specifically for real-time user collaboration (m-ld), integrated into one of our systems, demonstrating an upgraded user experience both between users of the same system install but also across multiple differently-configured installations. An important challenge that we intend to address is how such a choice of higher-layer protocol cohabits with the general federation protocol, maintaining data integrity.
 
-[1] https://github.com/federatedbookkeeping/timesheets/wiki/Project-Write-up-and-Analysis#characteristics-of-federated-systems
-[2] https://github.com/federatedbookkeeping/timesheets/wiki/Project-Write-up-and-Analysis#understanding-metadata
-[3] https://github.com/federatedbookkeeping/timesheets/wiki/Project-Write-up-and-Analysis#impacts-of-data-retransmission-by-intermediate-systems
-[4] https://github.com/federatedbookkeeping/timesheets#milestone-6-digital-signatures
-[5] https://github.com/federatedbookkeeping/timesheets/issues/51
-[6] https://michielbdejong.com/blog/28.html
+1. https://github.com/federatedbookkeeping/timesheets/wiki/Project-Write-up-and-Analysis#characteristics-of-federated-systems
+2. https://github.com/federatedbookkeeping/timesheets/wiki/Project-Write-up-and-Analysis#understanding-metadata
+3. https://github.com/federatedbookkeeping/timesheets/wiki/Project-Write-up-and-Analysis#impacts-of-data-retransmission-by-intermediate-systems
+4. https://github.com/federatedbookkeeping/timesheets#milestone-6-digital-signatures
+5. https://github.com/federatedbookkeeping/timesheets/issues/51
+6. https://michielbdejong.com/blog/28.html
 
 # Ecosystem
 The project’s core ecosystem includes the three collaborating organisations m-ld, Ponder Source and EvoluData.  Ponder Source intends to use the resulting artefacts commercially in their ConnectYourBooks offering, and Evoludata will use the time-tracking integration in production, with a view to adopting the live data-sharing capabilities progressively for internal deployments, and ultimately client deployments, once sufficiently stable.
