@@ -23,25 +23,34 @@ In the Solid-Nextcloud project Michiel de Jong implemented the Solid specificati
 # Budget
 The budget is primarily for human labour to realise the project's goals.  The work will build on the foundations of the prior Federated Timesheets project, by establishing a federation involving several systems for issue-tracking (in addition to time-tracking), with the added capability of live data-sharing between a subset of those systems.
 
+## Milestone 1
 To underpin this, Milestone 1 will deliver the vital prerequisite work of thinking through the theoretical grounding of the federation, addressing the technical challenges captured below (including the implications for privacy and transparency), and specifying explicitly a follow-on iteration of the “federation protocol” described there.  Estimated effort: 210 hours (MdeJ: 112,5h, AGM: 75h, GS: 22,5h).
 
-Milestone 2 involves the analysis and development work to incorporate live data-sharing capabilities into one of the tracking tools, comprising two parts.  The first is live data-sharing between clients of a single instance of that tool (such that data may be simultaneously edited by multiple users of that system, with conflicts elegantly resolved using conflict-free replicated data types), and the second is live data-sharing between different instances of the tool (including their clients; enabling data to be edited simultaneously by users of different instances).  Estimated effort: 270 hours (VE: 157,5h, GS: 112,5h).
+## Milestone 2
+This involves the analysis and development work to incorporate live data-sharing capabilities into one of the tracking tools, comprising two parts.  The first is live data-sharing between clients of a single instance of that tool (such that data may be simultaneously edited by multiple users of that system, with conflicts elegantly resolved using conflict-free replicated data types), and the second is live data-sharing between different instances of the tool (including their clients; enabling data to be edited simultaneously by users of different instances).  Estimated effort: 270 hours (VE: 157,5h, GS: 112,5h).
 
-Milestone 3 runs in parallel with 2, and updates the federation, using the protocol established in Milestone 1, of the multiple task-tracking systems.  It also integrates additional third-party systems, both open- and closed-source, Prejournal, timeld, and Tiki (multiple instances), integrating with additional external systems GitHub, SolidOS, Google Calendar, and Google Sheets as a minimum, with a stretch goal of GitLab, Toggl, and InvoiceNinja if achievable within the budget.  This breaks down as follows:
+## Milestone 3
+This milestone runs in parallel with 2, and updates the federation, using the protocol established in Milestone 1, of the multiple task-tracking systems.  It also integrates additional third-party systems, both open- and closed-source, Prejournal, timeld, and Tiki (multiple instances), integrating with additional external systems GitHub, SolidOS, Google Calendar, and Google Sheets as a minimum, with a stretch goal of GitLab, Toggl, and InvoiceNinja if achievable within the budget.  This breaks down as follows:
 
-3a Apply updated federation protocol with additional capabilities to Tiki federation with Prejournal, timeld and additional Tiki instance.  Estimated effort: 37,5h (VE: 30h, GS: 7,5h)
+### 3a
+Apply updated federation protocol with additional capabilities to Tiki federation with Prejournal, timeld and additional Tiki instance.  Estimated effort: 37,5h (VE: 30h, GS: 7,5h)
 
-3b: Apply updated federation protocol with additional capabilities to Prejournal federation with timeld and Tiki (multi-instance).  Estimated effort: 22,5h (MdeJ: 15h, GS: 7,5h)
+### 3b
+Apply updated federation protocol with additional capabilities to Prejournal federation with timeld and Tiki (multi-instance).  Estimated effort: 22,5h (MdeJ: 15h, GS: 7,5h)
 
-3c: Integrate Federation with suitably popular third-party task-tracking systems (e.g. GitHub).  Estimated effort: 60h (MdeJ: 60h)
+### 3c
+Integrate Federation with suitably popular third-party task-tracking systems (e.g. GitHub).  Estimated effort: 60h (MdeJ: 60h)
 
-3d: Integrate other systems as appropriate; complete testing and trouble-shooting.  Estimated effort: 30h.
+### 3d
+Integrate other systems as appropriate; complete testing and trouble-shooting.  Estimated effort: 30h.
 
 Total estimated effort: 150h (VE: 30h, MdeJ: 75h, GS: 15h, Testing & trouble-shooting: 30h).
 
-Milestone 4 combines the accomplishments of the previous two, by bringing together all of the systems into one federation, such that tracking data are shared both live (with multi-party edit) and conventionally (where data originating in one system propagate across all the others in the federation).  Estimated effort: 75h (VE: 37,5h, MdeJ: 37,5h)
+## Milestone 4
+This combines the accomplishments of the previous two milestones, by bringing together all of the systems into one federation, such that tracking data are shared both live (with multi-party edit) and conventionally (where data originating in one system propagate across all the others in the federation).  Estimated effort: 75h (VE: 37,5h, MdeJ: 37,5h)
 
-Finally, Milestone 5 delivers the documentation of the project's findings, including a slide presentation describing the beneficial outcomes and their applicability not only to the participants of this collaboration, but any collective endeavour involving time- and issue-tracking.  Project management efforts, conducted throughout, are included under the banner of this milestone.  Estimated effort: 60h (AGM: 60h).
+## Milestone 5
+Finally, this delivers the documentation of the project's findings, including a slide presentation describing the beneficial outcomes and their applicability not only to the participants of this collaboration, but any collective endeavour involving time- and issue-tracking.  Project management efforts, conducted throughout, are included under the banner of this milestone.  Estimated effort: 60h (AGM: 60h).
 
 The hourly rate applicable is €65/h.
 Total budget: €49 725
