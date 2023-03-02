@@ -2,7 +2,7 @@
 * Thematic Call: NGI Assure
 * Proposed Name: Federated Task-Tracking with Live Data
 * Website / wiki: https://github.com/federatedbookkeeping/task-tracking
-* Primary Contact: Victor
+* Primary Contact: Victor Emanouilov
 
 # Abstract
 In the “Federated Timesheets” research project we learned a lot about how to federate sovereign systems into a network with rapid data portability. Three systems (WikiSuite, timeld, and Prejournal) were linked into a two-way sync network, and integrated with the APIs of existing time-tracking apps.
@@ -14,51 +14,54 @@ Then, we will expand the scope of our data-sharing network from just time-tracki
 And finally, we want to research further how transparency of data provenance can be ensured and reported to users and auditors.
 
 # Relevant Previous Projects
-The Federated Timesheets project funded by NGI Assure is a natural predecessor of the proposed project, involving most of the same people (Michiel de Jong, Victor Emanouilov, George Svarovsky, and Angus McAllister). We have built a federated "club" of systems able to communicate with each other transferring timesheet data. The relation to the current project is the plan to extend sharing capabilities to Issue or Bug Trackers involving external and well-known systems like Github, and also improve the liveness of the data. Federated Timesheets use import/export operations triggered manually or semi-automatically, whereas we want to be able to share these data in real-time - e.g. collaborative editing of an issue/bug entry in an issue tracker or automated update and merge of information when the same issue is tracked in multiple places. The Federated Timesheets project will also benefit from federating issue trackers, in that timesheet entries often need to be associated with an existing issue.
+The [Federated Timesheets project](https://github.com/federatedbookkeeping/timesheets) funded by NGI Assure is a natural predecessor of the proposed project, involving most of the same people (Michiel de Jong, Victor Emanouilov, George Svarovsky, and Angus McAllister). We have built a federated "club" of systems able to communicate with each other transferring timesheet data. The relation to the current project is the plan to extend sharing capabilities to Issue or Bug Trackers involving external and well-known systems like Github, and also improve the liveness of the data. Federated Timesheets use import/export operations triggered manually or semi-automatically, whereas we want to be able to share these data in real-time - e.g. collaborative editing of an issue/bug entry in an issue tracker or automated update and merge of information when the same issue is tracked in multiple places. The Federated Timesheets project will also benefit from federating issue trackers, in that timesheet entries often need to be associated with an existing issue.
 
-In the project "Securing Shared Decentralised Live Information with m-ld" (2021-02-035) the m-ld team have been researching modifications to the primitives of the m-ld core protocol to natively support strong assurance of data integrity and traceability. This has expanded our general approach to concurrency, which is 'live by default', with extensibility to integrate coordination - say, of security and schema changes. This relates closely to this project’s need for m-ld to cohabit with diverse systems and protocols, including the proposed federation protocol. We hope to learn a great deal further in this project, and also be able to prioritise concurrency model extensions in future.
+In the project "[Securing Shared Decentralised Live Information with m-ld](https://github.com/m-ld/m-ld-security-spec)" (2021-02-035) the m-ld team have been researching modifications to the primitives of the m-ld core protocol to natively support strong assurance of data integrity and traceability. This has expanded our general approach to concurrency, which is 'live by default', with extensibility to integrate coordination - say, of security and schema changes. This relates closely to this project’s need for m-ld to cohabit with diverse systems and protocols, including the proposed federation protocol. We hope to learn a great deal further in this project, and also be able to prioritise concurrency model extensions in future.
 
-In the Solid-Nextcloud project Michiel de Jong implemented the Solid specification including the (still experimental) Webhooks feature. This will be a crucial feature for the integration of Solid pods and Solid OS Issue Trackers into the federation.
+In the [Solid-Nextcloud project](https://github.com/pdsinterop/solid-nextcloud), Michiel de Jong implemented the Solid specification including the (still experimental) Webhooks feature. This will be a crucial feature for the integration of Solid pods and Solid OS Issue Trackers into the federation.
 
 # Budget
 The budget is primarily for human labour to realise the project's goals.  The work will build on the foundations of the prior Federated Timesheets project, by establishing a federation involving several systems for issue-tracking (in addition to time-tracking), with the added capability of live data-sharing between a subset of those systems.
 
 ## Milestone 1
-To underpin this, Milestone 1 will deliver the vital prerequisite work of thinking through the theoretical grounding of the federation, addressing the technical challenges captured below (including the implications for privacy and transparency), and specifying explicitly a follow-on iteration of the “federation protocol” described there.  Estimated effort: 210 hours (MdeJ: 112,5h, AGM: 75h, GS: 22,5h).
+To underpin this, Milestone 1 will continue the research effort of thinking through the theoretical grounding of the federation in the light of its expansion to task-tracking, producing an initial draft specification of a “federation protocol”.  It will both inform work taking place in other milestones and be informed by their outputs, addressing as many of the technical challenges identified as possible (including the implications for privacy and transparency).  Its scope will also include investigating the feasibility of supporting live multi-homed data among federated systems without a formal CRDT.  It is structured as follows:
+
+1a: Analyse and capture theoretical underpinnings of the federation and guide relevant parts of other milestones.  Estimated effort: 227,5h (Ponder Source: 175h; m-ld: 52,5h)
+
+1b: Draft initial specification of federation protocol emerging informally from preceding Federated Timesheets project.  Time-boxed effort: 15 hours (m-ld: 15 hours)
+
+1c: Investigate feasibility of supporting live multi-homed data among federated systems without a formal CRDT.  Time-boxed effort: 67,5 hours (Ponder Source: 67,5h)
+
+Total estimated effort: 310 hours (Ponder Source: 242,5h; m-ld: 67,5h).
 
 ## Milestone 2
-This involves the analysis and development work to incorporate live data-sharing capabilities into one of the tracking tools, comprising two parts.  The first is live data-sharing between clients of a single instance of that tool (such that data may be simultaneously edited by multiple users of that system, with conflicts elegantly resolved using conflict-free replicated data types), and the second is live data-sharing between different instances of the tool (including their clients; enabling data to be edited simultaneously by users of different instances).  Estimated effort: 270 hours (VE: 157,5h, GS: 112,5h).
+Milestone 2 addresses half-duplex data-synchronisation between multiple instances of one of the task-tracking tools being used in the project, Tiki Trackers.  It consists of two parts: a) the in-depth analysis of the detailed requirements for that community's most pressing functional collaboration needs; and b) the design, implementation, and testing of the code to achieve that.  Time permitting, this may also extend to live data-sharing between users of a single instance of the software, for data to be simultaneously edited by multiple users of that system, with conflicts elegantly resolved using conflict-free replicated data types.  Estimated effort: 270 hours (Evoludata: 157,5h; m-ld: 112,5h).
 
 ## Milestone 3
-This milestone runs in parallel with 2, and updates the federation, using the protocol established in Milestone 1, of the multiple task-tracking systems.  It also integrates additional third-party systems, both open- and closed-source, Prejournal, timeld, and Tiki (multiple instances), integrating with additional external systems GitHub, SolidOS, Google Calendar, and Google Sheets as a minimum, with a stretch goal of GitLab, Toggl, and InvoiceNinja if achievable within the budget.  This breaks down as follows:
+Milestone 3 implements the expansion of the federation established in the preceding Federated Timesheets project to encompass task-tracking.  This involves minimally extending the schemas used in that federation to accommodate the additional metadata involved (in alignment with the outputs of Milestone 1), updating the connectors between the systems in question (commensurate with Milestone 1's more formal specification of the federation protocol), and integrating third-party tools used for task-tracking (such as Google Sheets, Google Calendar, and SolidOS) through the Ponder Source Connect Your Books integration tool.  This breaks down as follows:
 
-### 3a
-Apply updated federation protocol with additional capabilities to Tiki federation with Prejournal, timeld and additional Tiki instance.  Estimated effort: 37,5h (VE: 30h, GS: 7,5h)
+3a: Apply updated federation protocol to Tiki federation with Prejournal and timeld.  Estimated effort: 96,25h (Evoludata: 51,25h; m-ld: 37,5h; Ponder Source: 7,5h)
 
-### 3b
-Apply updated federation protocol with additional capabilities to Prejournal federation with timeld and Tiki (multi-instance).  Estimated effort: 22,5h (MdeJ: 15h, GS: 7,5h)
+3b: Apply updated federation protocol to Prejournal federation with timeld and multi-instance Tiki).  Estimated effort: 22,5h (Ponder Source: 15h; m-ld: 7,5h; Evoludata: 7,5h)
 
-### 3c
-Integrate Federation with suitably popular third-party task-tracking systems (e.g. GitHub).  Estimated effort: 60h (MdeJ: 60h)
+3c: Integrate federation with third-party task-trackers using Connect Your Books.  Estimated effort: 60h (Ponder Source: 75,5h)
 
-### 3d
-Integrate other systems as appropriate; complete testing and trouble-shooting.  Estimated effort: 30h.
+3d: Integrate SolidOS, Google Calendar, and Google Sheets with federation, together with testing.  Estimated effort: 30h (Ponder Source: 75,5h).
 
-Total estimated effort: 150h (VE: 30h, MdeJ: 75h, GS: 15h, Testing & trouble-shooting: 30h).
+3e: Attempt implementation of live task-tracking data sync between federated systems, pursuant to Milestone 1c.  Time-boxed effort: 75h (Ponder Source: 75h).
+
+Total estimated effort: 321,75h (Evoludata: 81,25h; Ponder Source: 188h; m-ld: 52,5h).
 
 ## Milestone 4
-This combines the accomplishments of the previous two milestones, by bringing together all of the systems into one federation, such that tracking data are shared both live (with multi-party edit) and conventionally (where data originating in one system propagate across all the others in the federation).  Estimated effort: 75h (VE: 37,5h, MdeJ: 37,5h)
+Finally, Milestone 4 delivers the documentation of the project's findings, including a slide presentation describing the beneficial outcomes and their applicability not only to the participants of this collaboration, but any collective endeavour involving time- and issue-tracking.  Project management efforts, conducted throughout, are included under the banner of this milestone.  Estimated effort: 60h (m-ld: 60h).
 
-## Milestone 5
-Finally, this delivers the documentation of the project's findings, including a slide presentation describing the beneficial outcomes and their applicability not only to the participants of this collaboration, but any collective endeavour involving time- and issue-tracking.  Project management efforts, conducted throughout, are included under the banner of this milestone.  Estimated effort: 60h (AGM: 60h).
-
-The hourly rate applicable is €65/h.
+The hourly rate applicable ranges between €15 and €65.
 Total budget: €49 725
 
 The project does not have other funding sources.
 
 # Comparison
-This project builds on  and extends the earlier NGI-Assure funded “Federated Timesheets” project. An analysis of historical efforts in the area of timesheet federation is provided there (https://github.com/federatedbookkeeping/timesheets/blob/main/ngi-assure-grant.md#compare-your-own-project-with-existing-or-historical-efforts-max-5000-characters).
+This project builds on  and extends the earlier NGI-Assure funded “Federated Timesheets” project. An analysis of historical efforts in the area of timesheet federation is provided [there](https://github.com/federatedbookkeeping/timesheets/blob/main/ngi-assure-grant.md#compare-your-own-project-with-existing-or-historical-efforts-max-5000-characters).
 
 For this project we investigated the existing landscape of federated issue tracker projects. We looked for existing systems that enable data exchange between issue trackers, and found one open source sync engine, “OctoSync” that syncs between GitHub and Jira. This may be worth contributing to as part of milestone 3, as there may be a role for an integration tool to abstract the third-party integrations. We have already contacted the author.
 
