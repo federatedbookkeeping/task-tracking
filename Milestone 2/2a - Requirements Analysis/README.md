@@ -10,7 +10,7 @@ The artefacts in this directory chart the development of our thinking and analys
 
 # summary
 
-When we began Milestone 2, we had reason to believe that **m-ld** [[1]](http://**m-ld**.org/) was a perfect fit for Tiki's goals: Tiki wanted to add "liveness", and **m-ld** excels at being "live" [[2]](/ngi-assure-application.md#milestone-2-collaborative-tiki). As we dug into details, however, we discovered that there are many kinds of "liveness", and what Tiki was most interested in didn't actually require the sophistication of **m-ld**'s approach.
+When we began Milestone 2, we had reason to believe that **m-ld** [[1]](http://m-ld.org/) was a perfect fit for Tiki's goals: Tiki wanted to add "liveness", and **m-ld** excels at being "live" [[2]](/ngi-assure-application.md#milestone-2-collaborative-tiki). As we dug into details, however, we discovered that there are many kinds of "liveness", and what Tiki was most interested in didn't actually require the sophistication of **m-ld**'s approach.
 
 ## live data sharing between client devices
 
@@ -25,7 +25,7 @@ With this as a starting point, we began having deeper conversations about the us
 
 During this analysis we also considered the security requirements of Tiki, in which individual users have fine-grained _read_ access control to specific fields [[5]](Partial%20Representations%20in%20m-ld.md). **m-ld** supports fine-grained _write_ access controls, but it always replicates datasets (or "domains") in full to every peer. While complex combinations of field read-access rights in a shared editing session are rare, they are theoretically possible. Such combinations would require **m-ld** features that do not yet exist: either to allow for _partial_ replication of domains, or to provide encryption schemes that prevent unauthorised reading of data when replicated.
 
-One remaining aspect of "liveness" is not addressed here: **realtime multiplayer editing within a single field** (such as a large description field). This is of particular interest to Tiki, where it could also be applied to the wiki page editor. Currently, **m-ld** does not support operations within a single value. That is, every update to a value is represented as deleting the entire value and inserting an entire new one. However, supporting operations *within* values is of interest to **m-ld** and in its near-future plans [[6]](https://github.com/**m-ld**/**m-ld**-spec/issues/35). When that becomes possible, it may be that **m-ld** is more useful to Tiki. Until then, we've decided that using **m-ld** here would be the wrong tool for the job, and result in more complexity than the value is worth.
+One remaining aspect of "liveness" is not addressed here: **realtime multiplayer editing within a single field** (such as a large description field). This is of particular interest to Tiki, where it could also be applied to the wiki page editor. Currently, **m-ld** does not support operations within a single value. That is, every update to a value is represented as deleting the entire value and inserting an entire new one. However, supporting operations *within* values is of interest to **m-ld** and in its near-future plans [[6]](https://github.com/m-ld/m-ld-spec/issues/35). When that becomes possible, it may be that **m-ld** is more useful to Tiki. Until then, we've decided that using **m-ld** here would be the wrong tool for the job, and result in more complexity than the value is worth.
 
 ## live data sharing between separate Tiki deployments
 
