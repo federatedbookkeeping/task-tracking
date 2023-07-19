@@ -23,7 +23,7 @@ In the [Solid-Nextcloud project](https://github.com/pdsinterop/solid-nextcloud),
 # Budget
 The budget is primarily for human labour to realise the project's goals.  The work will build on the foundations of the prior Federated Timesheets project, by establishing a federation involving several systems for issue-tracking (in addition to time-tracking), with the added capability of live data-sharing between a subset of those systems.
 
-## Milestone 1
+## Milestone 1: Theoretical Groundwork and requirements analysis
 To underpin this, Milestone 1 will continue the research effort of thinking through the theoretical grounding of the federation in the light of its expansion to task-tracking, producing an initial draft specification of a “federation protocol”.  It will both inform work taking place in other milestones and be informed by their outputs, addressing as many of the technical challenges identified as possible (including the implications for privacy and transparency).  Its scope will also include investigating the feasibility of supporting live multi-homed data among federated systems without a formal CRDT.  It is structured as follows:
 
 1a: Analyse and capture theoretical underpinnings of the federation and guide relevant parts of other milestones.  Estimated effort: 227,5h (Ponder Source: 175h; m-ld: 52,5h)
@@ -34,10 +34,10 @@ To underpin this, Milestone 1 will continue the research effort of thinking thro
 
 Total estimated effort: 310 hours (Ponder Source: 242,5h; m-ld: 67,5h).
 
-## Milestone 2
+## Milestone 2: Collaborative Tiki
 Milestone 2 addresses half-duplex data-synchronisation between multiple instances of one of the task-tracking tools being used in the project, Tiki Trackers.  It consists of two parts: a) the in-depth analysis of the detailed requirements for that community's most pressing functional collaboration needs; and b) the design, implementation, and testing of the code to achieve that.  Time permitting, this may also extend to live data-sharing between users of a single instance of the software, for data to be simultaneously edited by multiple users of that system, with conflicts elegantly resolved using conflict-free replicated data types.  Estimated effort: 270 hours (Evoludata: 157,5h; m-ld: 112,5h).
 
-## Milestone 3
+## Milestone 3: Federation of Issue-trackers
 Milestone 3 implements the expansion of the federation established in the preceding Federated Timesheets project to encompass task-tracking.  This involves minimally extending the schemas used in that federation to accommodate the additional metadata involved (in alignment with the outputs of Milestone 1), updating the connectors between the systems in question (commensurate with Milestone 1's more formal specification of the federation protocol), and integrating third-party tools used for task-tracking (such as Google Sheets, Google Calendar, and SolidOS) through the Ponder Source Connect Your Books integration tool.  This breaks down as follows:
 
 3a: Apply updated federation protocol to Tiki federation with Prejournal and timeld.  Estimated effort: 96,25h (Evoludata: 51,25h; m-ld: 37,5h; Ponder Source: 7,5h)
@@ -52,11 +52,13 @@ Milestone 3 implements the expansion of the federation established in the preced
 
 Total estimated effort: 321,75h (Evoludata: 81,25h; Ponder Source: 188h; m-ld: 52,5h).
 
-## Milestone 4
-Finally, Milestone 4 delivers the documentation of the project's findings, including a slide presentation describing the beneficial outcomes and their applicability not only to the participants of this collaboration, but any collective endeavour involving time- and issue-tracking.  Project management efforts, conducted throughout, are included under the banner of this milestone.  Estimated effort: 60h (m-ld: 60h).
+## Milestone 4: Documentation & Project Management
+Finally, Milestone 4 delivers the documentation of the project's findings, including a description of the beneficial outcomes and their applicability not only to the participants of this collaboration, but any collective endeavour involving time- and issue-tracking, with practical guidance how others could follow our lead.
+
+Project management efforts, conducted throughout, are included under the banner of this milestone.  Estimated effort: 60h (m-ld: 60h).
 
 The hourly rate applicable ranges between €15 and €65.
-Total budget: €49 725
+Total budget: €49.729
 
 The project does not have other funding sources.
 
