@@ -10,15 +10,17 @@ The artefacts in this directory chart the development of our thinking and analys
 
 # summary
 
-When we began Milestone 2, we had reason to believe that **m-ld** [[1]](http://m-ld.org/) was a perfect fit for Tiki's goals: Tiki wanted to add "liveness", and **m-ld** excels at being "live" [[2]](/ngi-assure-application.md#milestone-2-collaborative-tiki). As we dug into details, however, we discovered that there are many kinds of "liveness", and what Tiki was most interested in didn't actually require the sophistication of **m-ld**'s approach.
+When we began Milestone 2, we had reason to believe that **m-ld** [[1]](http://m-ld.org/) was a perfect fit for Tiki's goals: Tiki wanted to add "liveness", and **m-ld** excels at being "live" [[2]](/ngi-assure-application.md#milestone-2-collaborative-tiki). As we dug into details, however, we discovered that there are many kinds of "liveness", and what Tiki was most interested in didn't really mesh with **m-ld**'s approach.
 
 ## live data sharing between client devices
 
 Our initial designs focused on a shared editing experience for multiple users [[3]](./Live%20Tiki%20Data%20-%20User%20Stories.md#user-story-1). We knew that the most important use case was multiple individuals in a synchronous meeting, like a planning or standup meeting, editing the same ticket at the same time. We knew that users currently often solve this problem by copying values out of Tiki and into Google Docs, editing it there, and then copying it back.
 
-Thus it seemed natural that some kind of shared draft would be most useful to users. We discovered that **m-ld** would be a perfect fit for this design. Whereas currently only one user can open a Tracker Item at a time, locking out other users, under this model several users could open the same Tracker Item and share a view of draft data within a **m-ld** domain. This is analogous to copying the values into Google Docs, but seamless. Changes on one user's Tiki screen would immediately propagate to other users editing at the same time. When the group is finished editing, one user can press a Save button (just as in Tiki today) and commit those changes to the "actual" database, making the changes visible to non-editing viewers. This is analogous to copying the values back *from* Google Docs into Tiki, but again, is seamless and integrated into the application.
+Thus it seemed natural that some kind of shared draft would be most useful to users. It seemed that **m-ld** would be a perfect fit for this design. Whereas currently only one user can open a Tracker Item at a time, locking out other users, under this model several users could open the same Tracker Item and share a view of draft data within a **m-ld** domain. This is analogous to copying the values into Google Docs, but seamless. Changes on one user's Tiki screen would immediately propagate to other users editing at the same time. When the group is finished editing, one user can press a Save button (just as in Tiki today) and commit those changes to the "actual" database, making the changes visible to non-editing viewers. This is analogous to copying the values back *from* Google Docs into Tiki, but again, is seamless and integrated into the application.
 
-With this as a starting point, we began having deeper conversations about the users' true needs [[4]](./Would%20Milestone%202%20work%20better%20without%20m-ld.md#part-a-server-to-client). What we discovered was that the shared draft we described was not necessarily valuable to users. Instead, it may well be more valuable to have an easier way to edit a *single field* and, on completion, save that change directly to the "actual" database. That is, there is (in our current understanding) no strong need for a shared draft incorporating multiple fields. The "liveness" we arrived at is then composed of two things:
+With this as a starting point, we began having deeper conversations about the users' true needs [[4]](./Would%20Milestone%202%20work%20better%20without%20m-ld.md#part-a-server-to-client). What we discovered was that these pre-arranged collective editing sessions were not necessarily the most crucial user story, and the drastically different security models cause major engineering challenges (more on this later) . 
+
+Instead, it may well be more valuable to have an easier way to edit a *single field* and, on completion, save that change directly to the "actual" database. That is, there is (in our current understanding) no strong need for a shared draft incorporating multiple fields. The "liveness" we arrived at is then composed of two things:
 
 1. **An better experience editing a single field in a Tracker Item.** This is possible today, but is actually implemented by locking the entire Tracker Item while the field is edited. Two people cannot currently edit separate Tracker Item fields at the same time, though there is no intrinsic reason this should be the case.
 2. **Immediate updates to values on the screen.** That is, when a value is shown on a user's screen, and then that value is changed in the database by another user (or the same user in a different window), the value should update with the new value. We determined that, while **m-ld** *could* be a part of this mechanism, it wouldn't provide much value, and in fact would probably be more complex than other solutions. In particular, because **m-ld** would not be the actual database, the actual database would still have to notify **m-ld** of changes. We therefore decided that Tiki would be best served by implementing data pushing within its own code directly.
@@ -35,7 +37,10 @@ Similarly to the argument above, while each change is preferably as 'live' as po
 
 For this scenario, we propose a simpler architecture with a refresh-signal pattern [[8]](Would%20Milestone%202%20work%20better%20without%20m-ld.md#part-b-server-to-server), not involving **m-ld**.
 
+The above lead to the [Tiki realtime technical requirements](Tiki_requirements.md) document on the tiki side.
+
 ---
+
 <br>[1] http://m-ld.org/
 <br>[2] [/ngi-assure-application.md §milestone-2-collaborative-tiki](/ngi-assure-application.md#milestone-2-collaborative-tiki)
 <br>[3] [Live Tiki Data - User Stories §Context 1 - single Tiki instance](Live%20Tiki%20Data%20-%20User%20Stories.md#context-1---single-tiki-instance)
