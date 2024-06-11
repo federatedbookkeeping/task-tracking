@@ -1,6 +1,18 @@
 # Feasibility Study: Live multi-homed (task tracking) data without a CRDT
 
-We take task tracking as an example here. Compare the Jira and the GitHub issue formats:
+We take task tracking as an example here. Compare the Jira and the GitHub issue formats,
+as well as Solid OS and Projectron.
+
+One interesting observation is there is data at several levels:
+* issue state (title, description, status, time spent, current list of comments)
+* issue change log (date of change, events, version number)
+* authors (assignee, owner, commenter)
+* some support for dynamic access control (e.g. 'locked', 'is_admin')
+
+So a general model is that authors update objects over time. None of them (not so surprisingly) support contradicting versions. I do want to support that in Liquid Data Framework though.
+
+Anyway, from what I'm seeing here it feel totally feasible to sync between these. Maybe I should just make a start with the [Solid Data Module for Tasks](https://github.com/solid-contrib/data-modules/issues/73) and see how far I get before I run into restrictions. The main problem I haven't thought a lot about yet may be [author mapping](https://github.com/federatedbookkeeping/task-tracking/issues/25), but that feels doable too.
+
 
 ## GitHub Issue GET
 [docs](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#get-an-issue)
@@ -10,7 +22,7 @@ We take task tracking as an example here. Compare the Jira and the GitHub issue 
 * Response schema has both `id` e.g. `1` and `node_id` e.g. `"MDQ6VXNlcjU4MzIzMQ=="` - latter is [related to GraphQL](https://docs.github.com/en/graphql/guides/using-global-node-ids)
 * an issue has:
   * several identifiers (`id`, `node_id`, `url`, `number`)
-  * repository
+  * repository (map this to 'project' in other trackers!)
   * labels
   * comments
   * events (interesting!)
@@ -104,6 +116,17 @@ We take task tracking as an example here. Compare the Jira and the GitHub issue 
 
 ## Jira Issue GET
 [docs](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-get)
+* In Jira, issues can have watchers. Nice feature!
+* attachments are listed separately
+* there can be sub-tasks
+* Description in the example has type 'paragraph', I wonder if other description types exist
+* description version number is explicitly tracked
+* linked to a project (like repo for GH)
+* linked issues ('dependent')
+* worklog separate from comments, nice!
+* `"updated": 1` - is this a version number?
+* time tracking (original estimate, spent, remaining)
+* identifiers (`id`, `key`, `self` URL)
 
 ## Solid OS Issue GET
 [repo](https://github.com/solidos/issue-pane)
@@ -113,4 +136,5 @@ We take task tracking as an example here. Compare the Jira and the GitHub issue 
 [repo](https://github.com/janeirodigital/sai-js/tree/main/examples/vuejectron)
 [task model](https://github.com/janeirodigital/sai-js/blob/main/examples/vuejectron/src/models.ts#L24)
 [task shape](https://github.com/janeirodigital/sai-js/blob/main/packages/css-storage-fixture/shapetrees/shapes/Task%24.shex)
-[older?](https://github.com/hackers4peace/projectron/blob/main/src/app/models/task.model.ts#L4)
+[newer (using LDO)](https://github.com/elf-pavlik/sai-js/tree/sai-ldo/examples%2Fvuejectron)
+[older (not using Vue)](https://github.com/hackers4peace/projectron/blob/main/src/app/models/task.model.ts#L4)
