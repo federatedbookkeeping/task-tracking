@@ -13,5 +13,11 @@ We take task tracking as an example here. Compare the Jira and the GitHub issue 
 [docs](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-get)
 
 ## Solid OS Issue GET
+[repo](https://github.com/solidos/issue-pane)
+[docs](https://pdsinterop.org/conventions/tasks/#solid-os)
 
 ## Projectron Issue GET
+[repo](https://github.com/janeirodigital/sai-js/tree/main/examples/vuejectron)
+[task model](https://github.com/janeirodigital/sai-js/blob/main/examples/vuejectron/src/models.ts#L24)
+[task shape](https://github.com/janeirodigital/sai-js/blob/main/packages/css-storage-fixture/shapetrees/shapes/Task%24.shex)
+[older?](https://github.com/hackers4peace/projectron/blob/main/src/app/models/task.model.ts#L4)
