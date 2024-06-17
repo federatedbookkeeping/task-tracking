@@ -18,20 +18,19 @@ const JIRA_CREATE_ISSUE_OPTIONS = {
 let githubArr: { node_id: string, title: string }[] = [];
 
 async function readGitHub() {
-  const command = new Deno.Command(Deno.execPath(), {
+  const command = new Deno.Command("gh", {
     args: [
-      "gh",
       "api",
       "/issues",
-      "--method GET",
+      "--method", "GET",
     ],
   });
   const { code, stdout, stderr } = await command.output();
   console.log('GH API call process completed with code', code);
-  console.log(new TextDecoder().decode(stdout));
-  console.log(new TextDecoder().decode(stderr));
-  const text = readFileSync("./gh.json").toString();
+  console.log('stderr from GH API call:', new TextDecoder().decode(stderr));
+  const text = new TextDecoder().decode(stdout); 
   githubArr = JSON.parse(text);
+  console.log(`Imported ${githubArr.length} issues from GitHub`);
 }
 
 let lriMapping: {
@@ -91,9 +90,14 @@ async function ensureJira(issue: { node_id: string, title: string }) {
   console.log(`New mapping ${issue.node_id} - ${result.self} added`);
 }
 
-loadLriMapping();
-readGitHub();
-const promises = githubArr.map(issue => ensureJira(issue));
-// const promises = [ ensureJira(githubArr[0])];
-await Promise.all(promises);
-saveLriMapping();
+async function run() {
+  loadLriMapping();
+  await readGitHub();
+  const promises = githubArr.map(issue => ensureJira(issue));
+  // const promises = [ ensureJira(githubArr[0])];
+  await Promise.all(promises);
+  saveLriMapping();
+}
+
+// ...
+run();
