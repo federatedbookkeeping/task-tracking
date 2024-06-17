@@ -1,7 +1,7 @@
 In the spreadsheet 'Federated Task-tracking with Live Data' we have milestone 1: "Theoretical Groundwork and requirements analysis',
 and within that milestone 1a: 'Definitions, Examples, Privacy and Security, Federation Protocol specification'
 
-Of this, 3000 euros went to work done by Manuel Esmenio, who studied the topic full-time (40 hours/week) during December 2022 and
+Of milestone 1a, 3000 euros went to work done by Manuel Esmenio, who studied the topic full-time (40 hours/week) during December 2022 and
 part-time (20 hours/week) during January 2023. His findings were shared in the weekly Federated Bookkeeping conference call, as well
 as in his [article](https://github.com/federatedbookkeeping/research/tree/main/Article) about the topic.
 
