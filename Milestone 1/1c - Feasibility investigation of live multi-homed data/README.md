@@ -1,5 +1,9 @@
 # Feasibility Study: Live multi-homed (task tracking) data without a CRDT
 
+# CRDT, P4P and Local-Fist Research
+During this research phase, we (especially George and Michiel) had long conversations about whether it would even be possible to achieve live data
+without use of a formal CRDT.
+
 We take task tracking as an example here. Compare the Jira and the GitHub issue formats,
 as well as Solid OS and Projectron.
 
