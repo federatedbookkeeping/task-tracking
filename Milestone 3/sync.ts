@@ -17,7 +17,19 @@ const JIRA_CREATE_ISSUE_OPTIONS = {
 
 let githubArr: { node_id: string, title: string }[] = [];
 
-function readGitHub() {
+async function readGitHub() {
+  const command = new Deno.Command(Deno.execPath(), {
+    args: [
+      "gh",
+      "api",
+      "/issues",
+      "--method GET",
+    ],
+  });
+  const { code, stdout, stderr } = await command.output();
+  console.log('GH API call process completed with code', code);
+  console.log(new TextDecoder().decode(stdout));
+  console.log(new TextDecoder().decode(stderr));
   const text = readFileSync("./gh.json").toString();
   githubArr = JSON.parse(text);
 }
