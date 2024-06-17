@@ -17,7 +17,7 @@ to the Cambria Project](https://github.com/inkandswitch/cambria-project/pull/13)
 multi-homed data, our conclusion can be summarized as:
 
 > It has never been done before, so we think we should definitely be able to do that.
--- adapted from Pippi Longstocking ;)
+> -- adapted from Pippi Longstocking ;)
 
 It is worth noting that Cambria also has a [binding to Automerge](https://github.com/inkandswitch/cambria-automerge) so if we can use that then technically,
 it would not be 'without a CRDT', but rather 'a translating CRDT'.
