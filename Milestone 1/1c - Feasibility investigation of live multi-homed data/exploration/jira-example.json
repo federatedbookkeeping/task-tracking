@@ -1,0 +1,11 @@
+{
+    "fields": {
+        "project": {
+            "id": "10000"
+        },
+        "issuetype": {
+            "id": "10001"
+        },
+        "summary": "test through API"
+    }
+}
