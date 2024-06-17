@@ -35,41 +35,43 @@ table, the algorithm actually needs to do a lookup to see if that item already e
 can already do, even when translating between two representations that both have just one database table. Here is an example:
 
 GitHub issues:
--------------------------
+
 | id | title | assignee_name | assignee_class
--------------------------
+|----|-------|---------------|------------
 | 1 | get bread   | Michiel | Person
 | 2 | toast bread | Toaster | Machine
 | 3 | eat toast   | Michiel | Person
 
 Jira issues:
--------------------------
+
 | id | title | assignee_name | assignee_class
--------------------------
+|----|-------|---------------|------------
 | 7 | get bread   | Michiel | Person
 | 8 | toast bread | Toaster | Machine
 | 9 | eat toast   | Michiel | Person
 
 Solid OS issues:
--------------------------
+
 | id | title | assignee |
--------------------------
+|----|-------|---------------|
 | #abc | get bread   | #me |
 | #def | toast bread | #toaster |
 | #ghi | eat toast   | #me |
  
 Solid OS actors:
--------------------------
+
 | id | name | class |
--------------------------
+|----|-------|---------------|
 | #me | Michiel   | Person |
 | #toaster | Toaster | Machine |
 
 
-LRI Mapping:
--------------------------
+The difficulty is that Solid OS in this example extracts `assignee.name` and `assignee.class` to
+a different entity, with its own database table (or RDF document) `actors`.
+We can now solve this translation puzzle with the following LRI Mapping:
+
 | GitHub | Jira | Solid OS |
--------------------------
+|----|-------|---------------|
 | 1 | 7 | [#abc, #me] |
 | 2 | 8 | [#def, #toaster] |
 | 3 | 9 | [#ghi, #me] |
