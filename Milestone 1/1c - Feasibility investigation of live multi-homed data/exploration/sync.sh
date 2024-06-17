@@ -7,9 +7,9 @@ curl --request POST \
   --user "michiel@unhosted.org:$ATLASSIAN" \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/json' \
-  --data @jira-example.json
+  --data @jira-example.json > jira-api-response-example.json
 
-curl --request GET \
-  --url 'https://fedtt.atlassian.net/rest/api/3/issue/KAN-1' \
-  --user "michiel@unhosted.org:$ATLASSIAN" \
-  --header 'Accept: application/json'
+# curl --request GET \
+#   --url 'https://fedtt.atlassian.net/rest/api/3/issue/KAN-1' \
+#   --user "michiel@unhosted.org:$ATLASSIAN" \
+#   --header 'Accept: application/json'
