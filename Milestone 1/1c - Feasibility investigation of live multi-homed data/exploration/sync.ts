@@ -45,6 +45,7 @@ function loadLriMapping() {
   }
 }
 function saveLriMapping() {
+  console.log('Writing to disk', lriMapping);
   writeFileSync('./lri-mapping.json', JSON.stringify(lriMapping, null, 2));
 }
 
@@ -68,18 +69,19 @@ async function postToJira(issue: { title: string }) {
 
 async function ensureJira(issue: { node_id: string, title: string }) {
   if (lriMapping['gh-to-jira'][issue.node_id]) {
+    console.log(`Nothing to do for ${issue.node_id}`);
     return;
   }
+  console.log(`Adding ${issue.node_id} gh->jira`);
   const result = await postToJira(issue);
   lriMapping['gh-to-jira'][issue.node_id] = result.self;
   lriMapping['jira-to-gh'][result.self] = issue.node_id;
+  console.log(`New mapping ${issue.node_id} - ${result.self} added`);
 }
 
 loadLriMapping();
 readGitHub();
-// const promises = githubArr.map(issue => {
-//   ensureJira(issue);
-// });
-const promises = [ ensureJira(githubArr[0])];
+const promises = githubArr.map(issue => ensureJira(issue));
+// const promises = [ ensureJira(githubArr[0])];
 await Promise.all(promises);
 saveLriMapping();
