@@ -17,6 +17,7 @@ to the Cambria Project](https://github.com/inkandswitch/cambria-project/pull/13)
 multi-homed data, our conclusion can be summarized as:
 
 > It has never been done before, so we think we should definitely be able to do that.
+>
 > -- adapted from Pippi Longstocking ;)
 
 It is worth noting that Cambria also has a [binding to Automerge](https://github.com/inkandswitch/cambria-automerge) so if we can use that then technically,
@@ -30,7 +31,9 @@ both for single-app local-first software engineering, and for multi-app data por
 The [Extract Entity](https://github.com/federatedbookkeeping/research/issues/43) challenge is related to [scalar-array conversions](https://www.inkandswitch.com/cambria/#appendix-iii-on-scalar-array-conversions)
 as discussed by the Cambria Project a couple of years ago. At first it seemed that an ExtractEntity Lens could be built as an extension of Cambria, but it soon became
 apparent that this wouldn't work, because when extracting certain columns from a database table and putting them in a new table, the new table would need to have identifiers
-which the first table references, and the introduction of these would be non-deterministic. When translating a new object, it's not enough to create a new entry in the second
+which the first table references, and the introduction of these would be non-deterministic.
+
+When translating a new object, it's not enough to create a new entry in the second
 table, the algorithm actually needs to do a lookup to see if that item already exists. And this is something that the LRI mapping mechanism which we designed in milestone 1a
 can already do, even when translating between two representations that both have just one database table. Here is an example:
 
@@ -78,7 +81,8 @@ We can now solve this translation puzzle with the following LRI Mapping:
 
 This way we can handle both the problem of local identifiers and the Extract Entity problem, which so far no project, including Cambria, has been able to solve.
 
-This concludes milestone 1c of this project.
+This concludes milestone 1c of this project, and we look forward to trying this out in milestone 3, which we will start with right away, and try to complete
+as much as possible before the 11 June 2024 deadline of this project.
 
 # Investigation of data formats
 We take task tracking as an example here. Compare the Jira and the GitHub issue formats,
