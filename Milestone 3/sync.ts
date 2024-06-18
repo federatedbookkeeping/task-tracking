@@ -4,6 +4,15 @@ const JIRA_ORG = `fedtt`;
 const JIRA_USER = `michiel@unhosted.org`;
 const JIRA_TOKEN = Deno.env.get(`ATLASSIAN`);
 
+const READ_JIRA_URL = `https://fedtt.atlassian.net/rest/api/3/search?jql=`;
+const READ_JIRA_OPTIONS = {
+  method: "GET",
+  headers: {
+    Authorization: `Basic ${btoa(JIRA_USER + ":" + JIRA_TOKEN)}`,
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+};
 const JIRA_CREATE_ISSUE_URL = `https://${JIRA_ORG}.atlassian.net/rest/api/3/issue`;
 const JIRA_CREATE_ISSUE_OPTIONS = {
   method: "POST",
@@ -16,6 +25,7 @@ const JIRA_CREATE_ISSUE_OPTIONS = {
 };
 
 let githubArr: { node_id: string, title: string }[] = [];
+let jiraArr: any[] = [];
 
 async function readGitHub() {
   const command = new Deno.Command("gh", {
@@ -31,6 +41,13 @@ async function readGitHub() {
   const text = new TextDecoder().decode(stdout); 
   githubArr = JSON.parse(text);
   console.log(`Imported ${githubArr.length} issues from GitHub`);
+}
+
+async function readJira() {
+  const res = await fetch(READ_JIRA_URL, READ_JIRA_OPTIONS);
+  // console.log(await res.json());
+  jiraArr = (await res.json()).issues;
+  console.log(`Imported ${jiraArr.length} issues from Jira`);
 }
 
 let lriMapping: {
@@ -60,18 +77,19 @@ function saveLriMapping() {
   writeFileSync('./lri-mapping.json', JSON.stringify(lriMapping, null, 2));
 }
 
-async function postToJira(issue: { title: string }) {
+async function postToJira(issue: { node_id: string, title: string }) {
   const options = JIRA_CREATE_ISSUE_OPTIONS;
   options.body = JSON.stringify({
     "fields": {
         "project": {
-            "id": "10000"
+            "id": "10000",
         },
         "issuetype": {
-            "id": "10001"
+            "id": "10001",
         },
-        "summary": issue.title
-    }
+        "summary": issue.title,
+        "customfield_10033": issue.node_id,
+    },
   });
   console.log("POSTING to JIRA", JSON.parse(options.body));
   const res = await fetch(JIRA_CREATE_ISSUE_URL, options);
@@ -85,6 +103,7 @@ async function ensureJira(issue: { node_id: string, title: string }) {
   }
   console.log(`Adding ${issue.node_id} gh->jira`);
   const result = await postToJira(issue);
+  console.log(result);
   lriMapping['gh-to-jira'][issue.node_id] = result.self;
   lriMapping['jira-to-gh'][result.self] = issue.node_id;
   console.log(`New mapping ${issue.node_id} - ${result.self} added`);
@@ -93,9 +112,15 @@ async function ensureJira(issue: { node_id: string, title: string }) {
 async function run() {
   loadLriMapping();
   await readGitHub();
-  const promises = githubArr.map(issue => ensureJira(issue));
-  // const promises = [ ensureJira(githubArr[0])];
-  await Promise.all(promises);
+  await readJira();
+  jiraArr.map(issue => {
+    if (issue.fields.customfield_10033 !== null) {
+      lriMapping['gh-to-jira'][issue.fields.customfield_10033] = issue.id;
+      lriMapping['jira-to-gh'][issue.id] = issue.fields.customfield_10033;
+    }
+  });
+  const ghToJira = githubArr.map(issue => ensureJira(issue));
+  await Promise.all(ghToJira);
   saveLriMapping();
 }
 
