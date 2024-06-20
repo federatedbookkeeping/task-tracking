@@ -24,7 +24,14 @@ const JIRA_CREATE_ISSUE_OPTIONS = {
   body: 'fill me in'
 };
 
-let githubArr: { node_id: string, title: string }[] = [];
+interface GitHubIssue {
+  node_id: string,
+  comments_url: string,
+  title: string
+  comments: object[]
+}
+let githubArr: GitHubIssue[] = [];
+// deno-lint-ignore no-explicit-any
 let jiraArr: any[] = [];
 
 async function readGitHub() {
@@ -39,7 +46,24 @@ async function readGitHub() {
   console.log('GH API call process completed with code', code);
   console.log('stderr from GH API call:', new TextDecoder().decode(stderr));
   const text = new TextDecoder().decode(stdout); 
-  githubArr = JSON.parse(text);
+  const issues = JSON.parse(text);
+  const promises: Promise<GitHubIssue>[] = issues.map(async (issue: GitHubIssue): Promise<GitHubIssue> => {
+    console.log(`Fetching ${issue.comments_url}`);
+    const command = new Deno.Command("gh", {
+      args: [
+        "api",
+        issue.comments_url,
+        "--method", "GET",
+      ],
+    });
+    const { code, stdout, stderr } = await command.output();
+    console.log('GH API call process completed with code', code);
+    console.log('stderr from GH API call:', new TextDecoder().decode(stderr));
+    const text = new TextDecoder().decode(stdout); 
+    issue.comments = JSON.parse(text);
+    return issue;
+  });
+  githubArr = await Promise.all(promises);
   console.log(`Imported ${githubArr.length} issues from GitHub`);
 }
 
