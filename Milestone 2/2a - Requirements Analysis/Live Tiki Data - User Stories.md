@@ -307,17 +307,3 @@ Ensure user stories:
 * Describe system locking behaviour when a Tracker Item is opened for write
 * Describe system behaviour when a Tracker Item is saved by the original user
 * Describe system behaviour when a Tracker Item is saved by a different user
-
-# Raw Notes from Benoit:
-
-From the discussions, it seems our efforts are likely to naturally separate on these technical epics
-
-1- Real-time collaborative editing of tracker items in a single tiki, as defined by immediate update of individual fields.  This requires solving the UX issues (which in some ways have).
-
-    Tiki field values are ultimately stored as a simple (itemId, fieldId, value) structure.  The current model is to lock the whole tracker item at the application level, but that is already a soft lock.
-
-2- Real-time synchronisation between Tiki instals.  Bounding the problem, that’s normally a one way per field sync.  A real-time read-only view on subscribed Tiki Trackers, with a button that hyperlinks the remote instance for editing may be quite acceptable.  But in practice it requires the technical work of the previous effort to be viable.
-
-3- Real-time collaborative editing of text (large text fields in trackers and/or editing wiki pages).  In many ways, this is quite orthogonal as an endeavour from tracker field real time update, and could theoretically be worked on in parallel.
-
-4- External systems (namely GitLab).  GitLab provides webhooks, so we’d get near real-time updates that internal Tiki data need to be updated.  But if Tiki does updates it’s local data in reaction, the previous work on Milestone 1 should provide real-time update in every interface that supports it, without additional work on the sync side.
