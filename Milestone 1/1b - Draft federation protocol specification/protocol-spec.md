@@ -26,13 +26,16 @@ One implication of _system_ sovereignty (by contrast with data sovereignty) is t
 There is hence a continuum between maximum system sovereignty on one hand, and full real-time data sharing at the other.
 
 The impact of this trade-off is that multiple flavours of the protocol therefore arise, depending on where on that continuum the participating systems sit.
+
 ![System Sovereignty Continuum](./system-sovereignty-continuum.png)
 
 ## Core Protocol Logic
 ### Actors
 #### Participating Systems
 These are the applications actually participating in the federation, in whatever capacity.
+
 ![Participating Systems](./federation-actors.png)
+
 #### Proxies
 For Participating Systems on the extreme left-hand of the System Sovereignty Continuum, with stringent sovereignty requirements meaning they cannot be modified, proxies interact with them to read and write data on their behalf from and to other systems.
 #### Agents
