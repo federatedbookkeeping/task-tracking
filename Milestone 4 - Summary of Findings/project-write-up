@@ -1,0 +1,37 @@
+# Project Write-up
+## Executive Summary
+The Federated Task-Tracking project may be regarded as mostly successful, with the majority of the milestones achieved either fully or in part.  The exceptions relate to the use of m-ld in Tiki, and extension of timeld to incorporate task-tracking. It has delivered a draft high-level protocol specification for federation (using task-tracking as a foundation), federation of multiple sovereign systems using the principles of that protocol, and two-way exchange of data between them.
+
+## Milestone 1: Theoretical Groundwork and requirements analysis
+### 1a: Theoretical foundation of federation
+To be completed (LRI Map and associated concepts).
+### 1b: Draft informal federation protocol specification
+Mostly done; being updated following review.
+
+Possible further work in a follow-on project:
+- Expand on the semantic layer of federation to enable arbitrary extension of schema definitions - example: issue templates in issue-trackers are generally unstructured text, so it would be useful to be able to incorporate these into a structure with semantic definition of the sub-fields in question, and their relationships with other elements of the schema.
+### 1c: Investigate feasibility of supporting live multi-homed data among federated systems without CRDT
+This investigation was conducted, concluding that for a looser definition of 'live', this would be feasible.  That definition represented a point of disagreement between m-ld and the other consortium members.
+
+For m-ld, 'live' refers not only to data automatically propagated between systems, but also:
+ - Displayed automatically without user intervention being required; and
+ - With conflicts from simultaneous changes in multiple source systems automatically identified (and ideally resolved).
+
+For the remainder of the consortium, 'live' has the less stringent meaning of being automatically replicated between Participating Systems, with conflicts either overwriting earlier instances of the same data, or being rejected.
+## Milestone 2: Collaborative Tiki
+To be completed.
+## Milestone 3: Federation of Issue-trackers
+To be completed.
+### 3a: Extend federation of Tiki with Prejournal and timeld
+This was partially achieved, between Tiki and BridgeBot (Prejournal's replacement, proxying GitHub).  Federation of timeld was omitted due to development capacity constraints.  An existing project, Cambria, was considered instead, but it lacks the ability to track and map identifiers between systems (in addition to metadata fields), so BridgeBot was built instead.
+
+One useful insight from this part of the project was that... (to be completed).
+### 3b: Extend federation of Prejournal with multi-instance Tiki and timeld
+This was also achieved in part, extending 3a to federating multiple instances of both GitHub (via BridgeBot) and Tiki.  Again, timeld was omitted from this milestone.
+### 3c: Integrate federation of consortium issue-trackers with ConnectYourBooks
+### 3d: Federate SolidOS, Google Calendar, Google Sheets
+### 3e: Implement live task-tracking data sync between federated systems
+
+One notable achievement of this sub-milestone was being able to map disparate identifiers referring to the same data in different Participating Systems, a key characteristic of the federation protocol.  This was accomplished by adding hidden reference metadata to the corresponding record in each of the other systems to appropriate text fields in them.
+## Milestone 4: Documentation & Project Management
+Currently under way.
