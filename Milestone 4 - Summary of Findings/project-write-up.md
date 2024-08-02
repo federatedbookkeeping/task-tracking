@@ -1,14 +1,18 @@
 # Project Write-up
 ## Executive Summary
-The Federated Task-Tracking project may be regarded as mostly successful, with the majority of the milestones achieved either fully or in part.  The exceptions relate to the use of m-ld in Tiki, and extension of timeld to incorporate task-tracking. It has delivered a draft high-level protocol specification for federation (using task-tracking as a foundation), federation of multiple sovereign systems using the principles of that protocol, and two-way exchange of data between them.
+The Federated Task-Tracking project may be regarded as a partial success, with the majority of the milestones achieved either fully or in part.  The exceptions relate to the use of m-ld in Tiki, the extension of timeld to incorporate task-tracking, and a full protocol specification for federation (using task-tracking as a foundation).  It did achieve the federation of multiple sovereign systems using the principles established as groundwork for that protocol, and two-way exchange of data between them.
 
 ## Milestone 1: Theoretical Groundwork and requirements analysis
 ### 1a: Theoretical foundation of federation
 This was completed and written up [here](https://github.com/federatedbookkeeping/research/tree/main/Article).
-### 1b: Draft informal federation protocol specification
-The original approach to federation laid out in the preceding Federated Timesheets project was re-examined in the light of the more complex data structures inherent in the task-tracking domain, and formalised to a certain extent in iterative fashion alongside the experimental implementation forming Milestone 2.
+### 1b: Federation protocol specification
+The project has built on the foundations laid in its predecessor [Federated Timesheets](https://github.com/federatedbookkeeping/timesheets), which did not attempt to define any kind of protocol around federation, but rather to demonstrate the concept for a very specific subdomain.
 
-The analysis and discussion relating to this milestone brought to light the following useful insights:
+The original approach to federation laid out in that project was re-examined in the light of the more complex data structures inherent in the task-tracking domain, and formalised to a certain extent in iterative fashion alongside the experimental implementation forming Milestone 2.
+
+However, it was not possible to fulfil the original intention of creating a formal specification: with the benefit of hindsight, that was too ambitious a goal for a project of this nature.
+
+Nevertheless, the analysis and discussion relating to this milestone brought to light the following useful insights:
 #### Varying motivations for System Sovereignty
 The analysis of data sovereignty necessarily examined *system* sovereignty as well, and it emerged that there are two main motivations for system maintainers desiring that sovereignty, which vary primarily with power dynamics.
 
