@@ -24,7 +24,7 @@ There is hence a continuum between maximal system sovereignty on one hand (i.e. 
 
 The impact of this trade-off is that multiple variants of the protocol therefore apply, depending on the goals of the federation, and where on that continuum the participating systems sit.
 
-![System Sovereignty Continuum](./system-sovereignty-continuum.png)
+![System Sovereignty Continuum](./system-sovereignty-continuum.svg)
 
 ### Non-duplication of Data
 The propagation of data between Participating Systems must not result in the same data being stored by any one of them; each system (or Proxy) receiving data from another must verify that the data in question have not previousy been received.
@@ -36,7 +36,7 @@ This gives an overview of the different elements of a federation, which will hel
 ### Actors
 The diagram below depicts the main Actors comprising a federation.
 
-![Federation Actors](./federation-actors.png)
+![Federation Actors](./federation-actors.svg)
 
 #### Participating Systems
 These are the applications actually participating in the federation, in whatever capacity.  These may be maximally sovereign, or more flexible, catering for different schemata in other systems.
@@ -87,6 +87,7 @@ This may be accomplished in one of the two following ways, depending on the Syst
 
 ## Security
 <details>
+
 ### Authentication and Authorization
 Participating Systems or their Proxies use and cache the credentials required to access other Participating Systems.  These can take any of the follosing forms, depending on what those systems require:
 - Username and password (with corresponding permissions set in the target system);
@@ -103,4 +104,4 @@ The same applies when information is exchanged, network traffic should be encryp
 ## Decision Tree
 The decision tree below will help guide you through the optimum approach to federating applications.
 
-NB: This is currently under development, and will be added as soon as it is ready.
+![Federation Decision Tree](./federation-decision-tree.svg)
