@@ -17,6 +17,7 @@ While most use cases information sharing use cases are asynchronous in nature, s
 
 ## Trade-offs and Constraints
 When deciding on the best approach to federating applications, there are certain trade-offs and constraints you need to consider.  The first and third goals above are in tension, and the design of any federation including both of those needs to take that into account.
+<a name="data-immediacy"></a>
 ### System Sovereignty vs. Real-Time Sharing
 One implication of _system_ sovereignty (by contrast with data sovereignty) is that any demands upon it for change in order to interact with other systems should be minimised - or even zero.  Live information sharing, however, requires much closer and deeper integration between participating applications, which requires substantive changes to each to enable.  This applies not only technically (where modifications are needed to support real-time data exchange) but also philosophically, in that those applications need to cede control of the metadata describing the data they wish to share to an agreed common structure.  See the m-ld article [Sustaining Truth across Integrated Applications - converge physical sources into one logical source](https://m-ld.org/news/) for a more in-depth treatment of this topic.
 
