@@ -2,16 +2,14 @@
 
 [![Join the chat at https://gitter.im/federatedbookkeeping/task-tracking](https://badges.gitter.im/federatedbookkeeping/task-tracking.svg)](https://gitter.im/federatedbookkeeping/task-tracking?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+## Introduction
 Applications and data are usually tightly coupled: the format, structure, and meaning of data are almost inseparable from the application generating and using them, hindering data portability between disparate applications. Sharing data between applications entails mastering complex and proprietary APIs or export formats, and transforming output data into the necessary structure and meaning for use elsewhere.  These are time-consuming and error-prone things to do.
 
-Federation is a way of linking different systems together so they are 'connected, but sovereign', and so users can share data between them. The precursor [Federated Timesheets project](https://github.com/federatedbookkeeping/timesheets) successfully pioneered this approach for time-tracking data, bringing together [WikiSuite](https://wikisuite.org/Software), [timeld](https://github.com/m-ld/timeld), and [Prejournal](https://prejournal.org/) such that timesheet data entered into one are easily made available in others.
+Federation is a way to free up information from the silos of proprietary software, linking different systems together so they are 'connected, but sovereign', and so users can regain control of the data in them, and share them more easily between systems.
 
-Federated Task-Tracking builds on that foundation, with a more generalised approach applicable to a broader range of real-world scenarios, including live collaborative editing of latency-critical data shared between the systems involved.
+This Federated Task-Tracking project builds on the foundation laid in its precursor [Federated Timesheets project](https://github.com/federatedbookkeeping/timesheets), which successfully pioneered this approach for time-tracking data such that timesheet data entered into one are easily made available in others.  Its more generalised approach applies to a broader range of real-world scenarios, including live collaborative editing of latency-critical data shared between the systems involved.
 
-## Introduction
-The intention of data federation is to free up information from the silos of proprietary software.  Commercial Software as a Service providers store and manage the information they bring in and generate on their users' behalf.  This makes it much harder for users to share that information with others, since SaaS providers are reluctant to facilitate it.  This is either because they are benefiting commercially from aggregating the data for analysis and machine learning, or because they are concerned about customer churn - or both.  Shareholders in SaaS companies demand growth in revenues and profits, which means that losing customers is bad for business, and so providers often go out of their way to make this difficult.  
-
-This conflicts with the desire of their customers to be able to use their data in the way they see fit, in software tools of their choosing, which means being able to move their data between systems.  Data federation seeks to provide a technical mechanism to address this misalignment of interests.
+Federation aims to provide a technical mechanism to address this misalignment of interests between commercial software vendors and users regarding control of data in their software.
 
 ## Use Cases
 There are many different scenarios making federation useful.  The categories below aim to capture these, together with some real-world examples.
