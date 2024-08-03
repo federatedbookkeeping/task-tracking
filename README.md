@@ -7,7 +7,7 @@ Applications and data are usually tightly coupled: the format, structure, and me
 
 Federation is a way to free up information from the silos of proprietary software, linking different systems together so they are 'connected, but sovereign', and so users can regain control of the data in them, and share them more easily between systems.
 
-This Federated Task-Tracking project builds on the foundation laid in its precursor [Federated Timesheets project](https://github.com/federatedbookkeeping/timesheets), which successfully pioneered this approach for time-tracking data such that timesheet data entered into one are easily made available in others.  Its more generalised approach applies to a broader range of real-world scenarios, including live collaborative editing of latency-critical data shared between the systems involved.
+This Federated Task-Tracking project builds on the foundation laid in its precursor [Federated Timesheets project](https://github.com/federatedbookkeeping/timesheets), which successfully pioneered this approach for time-tracking data such that timesheet data entered into one system are easily made available in others.  Its more generalised approach applies to a broader range of real-world scenarios, including live collaborative editing of latency-critical data shared between the systems involved.
 
 Federation aims to provide a technical mechanism to address this misalignment of interests between commercial software vendors and users regarding control of data in their software.
 
