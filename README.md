@@ -7,7 +7,7 @@ Applications and data are usually tightly coupled: the format, structure, and me
 
 Federation is a way to free up information from the silos of proprietary software, linking different systems together so they are 'connected, but sovereign', and so users can regain control of the data in them, and share them more easily between systems.
 
-This Federated Task-Tracking project builds on the foundation laid in its precursor [Federated Timesheets project](https://github.com/federatedbookkeeping/timesheets), which successfully pioneered this approach for time-tracking data such that timesheet data entered into one system are easily made available in others.  Its more generalised approach applies to a broader range of real-world scenarios, including live collaborative editing of latency-critical data shared between the systems involved.
+This Federated Task-Tracking project builds on the foundation laid in its [precursor Federated Timesheets project](https://github.com/federatedbookkeeping/timesheets), which successfully pioneered this approach for time-tracking data such that timesheet data entered into one system are easily made available in others.  Its more generalised approach applies to a broader range of real-world scenarios, including live collaborative editing of latency-critical data shared between the systems involved.
 
 Federation aims to provide a technical mechanism to address this misalignment of interests between commercial software vendors and users regarding control of data in their software.
 
@@ -21,17 +21,17 @@ Several companies jointly delivering a project that have all standardised on the
 Federating these instances makes it possible to share data between them in a read-write fashion.
 
 #### Real-world Example
-This project includes an implementation of federation between two different instances of the Tiki issue-tracker.  See [here](./docs/project-background/Milestone%202/2a%20-%20Requirements%20Analysis/Live%20Tiki%20Data%20-%20User%20Stories.md#multiple-tiki-instances) for details.
+This project includes an [implementation of federation between two different instances of the Tiki issue-tracker](./docs/project-background/Milestone%202/2a%20-%20Requirements%20Analysis/Live%20Tiki%20Data%20-%20User%20Stories.md#multiple-tiki-instances).
 </details>
 
 ### Collaborate on the Same Data in Different Applications
 <details>
 This is the most likely scenario, with multiple companies jointly delivering a project using their own preferred applications for managing shared project data.  Sometimes SaaS providers will make connectors available to their competitors' software, but since this runs contrary to their commercial interests, these are not necessarily effective or well-maintained.  Third-party integration tools can be helpful to achieve collaborative data-sharing, although this does entail a cost (usually licensing).
 
-Federation can achieve the same goal, although the approach very much depends on how much influence or control there is over the systems involved.  This project's [practical guide](./docs/federation-guide.md) describes what to evaluate, and how to approach federation in the light of that.
+Federation can achieve the same goal, with the approach depending greatly on how much influence or control you have over the systems involved.  The [practical guide to system federation](./docs/federation-guide.md) included with this project describes what to evaluate, and how to approach federation in different contexts.
 
 #### Real-world Example
-The exemplar implementation in this project federates Tiki Tracker with GitHub, using [BridgeBot](https://github.com/federatedbookkeeping/bridgeBot) as a proxy for the latter.  See the [Accessing Federation Demos](./docs/demo-instructions.md) for details of how this is set up.
+The exemplar implementation in this project federates Tiki Tracker with GitHub, using [BridgeBot as a proxy](https://github.com/federatedbookkeeping/bridgeBot) for the latter.  See the [Accessing Federation Demos](./docs/demo-instructions.md) for details of how this is set up.
 </details>
 
 ### Use Case Variants - Asynchronous vs. Real-time Collaboration
@@ -44,13 +44,13 @@ See [System Sovereignty vs. Real-Time Sharing](./docs/federation-guide.md#data-i
 ### Conflict Management
 <details>
 
-Wherever it is possible to make changes to the same data in multiple places, conflicts are likely to occur.  There are many different ways of handling these, which the project examines [here](<./docs/project-background/Milestone%202/2a%20-%20Requirements%20Analysis/Tiki_requirements.md>).
+Wherever it is possible to make changes to the same data in multiple places, conflicts are likely to occur.  The project examines a variety of approaches to [handling conflicts](<./docs/project-background/Milestone%202/2a%20-%20Requirements%20Analysis/Tiki_requirements.md>).
 
 </details>
 
 
 ## How to Federate Applications
-See the [practical guide](./docs/federation-guide.md) to learn how to do this.
+See the [practical guide to system federation](./docs/federation-guide.md) to learn how to do this.
 
 ## Original Project Plan and Structure
 For details of the project's original plan and structure, see the [NGI Assure proposal](./docs/project-background/ngi-assure-application.md).
