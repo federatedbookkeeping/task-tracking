@@ -4,9 +4,9 @@ The Federated Task-Tracking project may be regarded as a partial success, with t
 
 ## Milestone 1: Theoretical Groundwork and requirements analysis
 ### 1a: Theoretical foundation of federation
-This was completed and written up [here](https://github.com/federatedbookkeeping/research/tree/main/Article).
+The [Theoretical Foundation of Federation](https://github.com/federatedbookkeeping/research/tree/main/Article) has been completed and written up.
 ### 1b: Federation protocol specification
-The project has built on the foundations laid in its predecessor [Federated Timesheets](https://github.com/federatedbookkeeping/timesheets), which did not attempt to define any kind of protocol around federation, but rather to demonstrate the concept for a very specific subdomain.
+The project has built on the foundations laid in its [predecessor Federated Timesheets](https://github.com/federatedbookkeeping/timesheets), which did not attempt to define any kind of protocol around federation, but rather to demonstrate the concept for a very specific subdomain.
 
 The original approach to federation laid out in that project was re-examined in the light of the more complex data structures inherent in the task-tracking domain, and formalised to a certain extent in iterative fashion alongside the experimental implementation forming Milestone 2.
 
@@ -43,7 +43,7 @@ For m-ld, 'live' refers not only to data automatically propagated between system
 
 For the remainder of the consortium, 'live' has the less stringent meaning of being automatically replicated between Participating Systems, with conflicts either overwriting earlier instances of the same data, or being rejected.
 ## Milestone 2: Collaborative Tiki
-The detailed write-up for this milestone may be found in the relevant [README](https://github.com/federatedbookkeeping/task-tracking/blob/main/Milestone%202/2a%20-%20Requirements%20Analysis/README.md) file.
+The detailed write-up for this milestone may be found in the [README for Milestone 2](https://github.com/federatedbookkeeping/task-tracking/blob/main/Milestone%202/2a%20-%20Requirements%20Analysis/README.md) file.
 ## Milestone 3: Federation of Issue-trackers
 This was partially achieved, enhancing Tiki to federate with other Participating Systems to exchange task-tracking and comment data.  This was demonstrated with BridgeBot (Prejournal's replacement - see **3b** below for details).  
 ### 3a: Extend federation of Tiki with Prejournal and timeld
